@@ -4,7 +4,8 @@
   "description": "A minimal Electron application with node serialport",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "app:dist": "electron-builder -mwl"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,22 @@
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
+  "build": {
+    "appId": "electron.serialport",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Utility"
+    }
+  },
   "devDependencies": {
-    "electron": "^26.4.0"
+    "electron": "^26.4.0",
+    "electron-builder": "^24.6.4"
   },
   "dependencies": {
     "serialport": "^10.3.0",
